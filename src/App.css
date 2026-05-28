@@ -1,38 +1,129 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  font-family: 'Arial', sans-serif;
+  background:#0d0d1a;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 15px 30px;
+  border-bottom: 2px solid purple;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav h1 {
+  color: purple;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding-right: 20px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: purple;
+}
+
+.streamlist-container {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.streamlist-container h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: purple;
+}
+
+.streamlist-container p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #aaaaaa;
+}
+
+.streamlist-input {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.streamlist-input input {
+  padding: 12px 20px;
+  width: 70%;
+  border-radius: 25px;
+  border: 2px solid purple;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.streamlist-input input::placeholder {
+  color: gray;
+}
+
+.streamlist-input button {
+  padding: 12px 25px;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.streamlist-input button:hover {
+  background-color: #5a1a9e;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: black;
+  margin: 10px auto;
+  padding: 15px 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  font-size: 18px;
+  border-left: 4px solid purple;
+  text-align: left;
+}
+
+div h2 {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 32px;
+  color: purple;
+}
+
+div p {
+  text-align: center;
+  margin-top: 15px;
+  color: #aaaaaa;
 }
