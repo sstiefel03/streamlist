@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function StreamList() {
     const [input, setinput] = useState('');
-    const [list, setList] = useState([]);
+    const [list, setList] = useState(() => {
+        const saved = localStorage.getItem('streamlist');
+        return saved ? JSON.parse(saved) : [];
+    });
     const [editIndex, setEditIndex] = useState(null);
     const [editValue, setEditValue] = useState('');
+
+    useEffect(() => {
+        localStorage.setItem('streamlist', JSON.stringify(list));
+    }, [list]);
 
     const handleAdd = () => {
         if (input.trim() !== '') {
@@ -39,6 +46,10 @@ function StreamList() {
         setEditValue('');
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') handleAdd();
+    };
+
     return (
         <div className="streamlist-container">
             <h2>My StreamList</h2>
@@ -49,6 +60,7 @@ function StreamList() {
                 placeholder="Enter a movie or show..."
                 value={input}
                 onChange={(e) => setinput(e.target.value)}
+                onKeyDown={handleKeyDown}
             />
             <button onClick={handleAdd}>Add</button>
             </div>

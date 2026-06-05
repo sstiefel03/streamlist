@@ -167,3 +167,39 @@ div p {
 .edit-btn {color: purple;}
 .delete-btn {color: purple;}
 
+.movies-search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.movies-search input {
+  padding: 12px 20px;
+  width: 70%;
+  border-radius: 25px;
+  border: 2px solid purple;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.movies-search input::placeholder {
+  color: gray;
+}
+
+.movies-search button {
+  padding: 12px 25px;
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.movies-search button:hover {
+  background-color: #5a1a9e;
+}
