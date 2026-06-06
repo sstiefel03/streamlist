@@ -203,3 +203,177 @@ div p {
 .movies-search button:hover {
   background-color: #5a1a9e;
 }
+
+.subscriptions-container {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.subscriptions-container h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: purple;
+  font-family: 'Cinzel', sans-serif;
+}
+
+.subscriptions-container p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #aaaaaa;
+}
+
+.subscriptions-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.subscription-card {
+  background-color: black;
+  border-left: 4px solid purple;
+  border-radius: 10px;
+  padding: 20px;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.subscription-card h3 {
+  font-size: 14px;
+  color: white;
+  font-family: 'Cinzel', sans-serif;
+  word-break: break-word;
+  text-align: center;
+}
+
+.subscription-card p {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin: 0;
+}
+
+.subscription-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.subscription-card button {
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Cinzel', sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.subscription-card button:hover {
+  background-color: #5a1a9e;
+}
+
+.warning {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.cart-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.cart-container h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: purple;
+  font-family: 'Cinzel', sans-serif;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: black;
+  border-left: 4px solid purple;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.cart-item-info {
+  flex: 1;
+  color: white;
+  font-family: 'Cinzel', sans-serif;
+}
+
+.cart-item-info h3 {
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.cart-item-info p {
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-controls button {
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition:   background-color 0.3s;
+}
+
+.cart-item-controls button:hover {
+  background-color: #5a1a9e;
+}
+
+.remove-btn {
+  background-color: darkred;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: 'Cinzel', sans-serif;
+  transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+  background-color: red;
+}
+
+.cart-total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 20px;
+  color: purple;
+  font-family: 'Cinzel', sans-serif;
+}
