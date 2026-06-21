@@ -18,11 +18,16 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
                                 <p>${item.price}</p>
                             </div>
                             <div className="cart-item-controls">
-                                <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+                                <button 
+                                    onClick={() => updateQuantity(item.id, -1)}
+                                    disabled={item.quantity === 1}
+                                    aria-label="Decrease quantity"
+                                >-</button>
                                 <span>{item.quantity}</span>
-                                {item.id > 4 && (
-                                    <button onClick={() => updateQuantity(item.id, 1)}>+</button>
-                                )}
+                                <button 
+                                    onClick={() => updateQuantity(item.id, 1)}
+                                    aria-label="Increase Quantity"                                
+                                >+</button>
                             </div>
                             <button className="remove-btn" onClick={() => removeFromCart(item.id)}>Remove</button>
                         </div>

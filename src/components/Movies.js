@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 
-const API_KEY = "629b5c752b09ceeb8a74b7dec3ef2b46";
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 function Movies() {
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState('');
 
+    const [loading, setLoading] = useState(false);
+
     const searchMovies = async () => {
         if (!query.trim()) return;
+        setLoading(true);
         try {
-            const response =  await fetch(
+            const response = await fetch(
                 `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}`
             );
+            if (!response.ok) {
+                throw new Error(`TMDB API error: ${response.status}`);
+            }
             const data = await response.json();
             if (data.results.length === 0) {
                 setError('No movies were found. ');
@@ -23,7 +29,11 @@ function Movies() {
                 setQuery('');
             }
         } catch (err) {
+            console.error(err);
             setError('Something went wrong. Please try again. ');
+            setMovies([]);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -42,7 +52,9 @@ function Movies() {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
-            <button onClick={searchMovies}>Search</button>
+            <button onClick={searchMovies} disabled={loading}>
+                {loading ? 'Searching...' : 'Search'}
+            </button>
             </div>
 
             {error && <p>{error}</p>}

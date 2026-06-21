@@ -1,10 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 function StreamList() {
-    const [input, setinput] = useState('');
+    const [input, setInput] = useState('');
     const [list, setList] = useState(() => {
-        const saved = localStorage.getItem('streamlist');
-        return saved ? JSON.parse(saved) : [];
+        try {
+            const saved = localStorage.getItem('streamlist');
+            return saved ? JSON.parse(saved) : [];
+        } catch (err) {
+            console.error('Failed to load StreamList from localStorage:', err);
+            return[];
+        }
     });
     const [editIndex, setEditIndex] = useState(null);
     const [editValue, setEditValue] = useState('');
@@ -15,9 +20,8 @@ function StreamList() {
 
     const handleAdd = () => {
         if (input.trim() !== '') {
-            console.log('Added to StreamList:', input);
-            setList([...list, { title: input, completed: false}]);
-            setinput('');
+            setList([...list, {id: crypto.randomUUID(), title: input, completed: false}]);
+            setInput('');
         }
     };
 
@@ -26,8 +30,9 @@ function StreamList() {
     }
 
     const handleComplete = (index) => {
-        const updated = [...list];
-        updated[index].completed = !updated[index].completed;
+        const updated = list.map((item, i) =>
+            i === index ? { ...item, completed: !item.completed } : item
+        );
         setList(updated);
     }
 
@@ -38,8 +43,9 @@ function StreamList() {
 
     const handleEditSave = (index) => {
         if (editValue.trim() !== '') {
-            const updated = [...list];
-            updated[index].title = editValue;
+            const updated = list.map((item, i) =>
+                i === index ? { ...item, title: editValue } : item
+            );
             setList(updated);
         }
         setEditIndex(null);
@@ -59,14 +65,17 @@ function StreamList() {
                 type="text"
                 placeholder="Enter a movie or show..."
                 value={input}
-                onChange={(e) => setinput(e.target.value)}
+                onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
             <button onClick={handleAdd}>Add</button>
             </div>
+        {list.length === 0 ? (
+            <p>Your StreamList is empty. Add a movie or show to get started.</p>
+        ) : (
             <ul>
                 {list.map((item,index) => (
-                    <li key={index} className={item.completed ? 'completed' : ''}>
+                    <li key={item.id} className={item.completed ? 'completed' : ''}>
                         {editIndex === index ? (
                             <div>
                                 <input
@@ -97,6 +106,7 @@ function StreamList() {
                     </li>
                 ))}
             </ul>
+        )}    
         </div>
     );
 }
