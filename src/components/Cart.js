@@ -1,8 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Cart({ cartItems, removeFromCart, updateQuantity }) {
+    const navigate = useNavigate();
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
     return (
         <div className="cart-container">
             <h2>Cart</h2>
@@ -35,6 +36,9 @@ function Cart({ cartItems, removeFromCart, updateQuantity }) {
                     <div className="cart-total">
                         <h3>Total: ${total.toFixed(2)}</h3>
                     </div>
+                    <button className="checkout-btn" onClick={() => navigate('/checkout')}>
+                        Checkout
+                    </button>
                 </>
             )}
         </div>
