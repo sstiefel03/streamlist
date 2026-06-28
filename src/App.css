@@ -528,3 +528,24 @@ div p {
 .confirmation button:hover {
   background-color: #5a1a9e;
 }
+
+nav ul li span {
+  color: white;
+  font-size: 16px;
+}
+
+nav ul li button {
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 6px 16px;
+  cursor: pointer;
+  font-family: 'Cinzel', sans-serif;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+nav ul li button:hover {
+  background-color: #5a1a9e;
+}

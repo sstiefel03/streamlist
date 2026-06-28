@@ -17,7 +17,7 @@ function Navbar({ cartCount, user, handleLogout }) {
                         <button onClick={handleLogout}>Logout</button>
                     </li>
                 ) : (
-                    <li><Link to="/login"></Link></li>
+                    <li><Link to="/login">login</Link></li>
                 )}
             </ul>
         </nav>

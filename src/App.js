@@ -112,7 +112,14 @@ function App() {
         </ProtectedRoute>
        }
       />
-      <Route path="/about" element={<About />} />
+      <Route 
+       path="/about" 
+       element={
+       <ProtectedRoute user={user}>
+        <About />
+       </ProtectedRoute>
+       }
+      />
     </Routes>
   </Router>
   );
